@@ -1,0 +1,69 @@
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-dina-bold-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-dina-bold-r-*-*-10-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #EDEDED
+xscreensaver.Dialog.background:         #202020
+xscreensaver.Dialog.topShadowColor:     #202024
+xscreensaver.Dialog.bottomShadowColor:  #202024
+xscreensaver.Dialog.Button.foreground:  #EDEDFF
+xscreensaver.Dialog.Button.background:  #444
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #EDEDFF
+xscreensaver.Dialog.text.background:    #444
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #A9B7C4
+xscreensaver.passwd.thermometer.background:  #202020
+xscreensaver.passwd.thermometer.width:       8
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+
+! General
+urxvt*termName: rxvt-256color
+urxvt*loginShell: true
+urxvt*scrollBar: false
+urxvt*secondaryScroll: false
+urxvt*saveLines: 65535
+urxvt*cursorBlink: true
+! urxvt*shading: 10
+! urxvt*transparent: true
+
+! Extensions
+urxvt*urlLauncher: /usr/bin/chromium-browser
+! Left mouse
+urxvt*matcher.button: 1 
+
+! Appearance
+urxvt*font: xft:Noto Mono for Powerline:Regular:size=8
+urxvt*boldFont: xft:Noto Mono for Powerline:Regular:size=8
+urxvt*letterSpace: -1
+! Dracula Xresources palette (theme)
+urxvt*cursorColor: #50FA7B
+urxvt*foreground: #F8F8F2
+urxvt*background: #282A36
+urxvt*color0: #000000
+urxvt*color8: #4D4D4D
+urxvt*color1: #FF5555
+urxvt*color9: #FF6E67
+urxvt*color2: #50FA7B
+urxvt*color10: #5AF78E
+urxvt*color3: #F1FA8C
+urxvt*color11: #F4F99D
+urxvt*color4: #CAA9FA
+urxvt*color12: #CAA9FA
+urxvt*color5: #FF79C6
+urxvt*color13: #FF92D0
+urxvt*color6: #8BE9FD
+urxvt*color14: #9AEDFE
+urxvt*color7: #BFBFBF
+urxvt*color15: #E6E6E6

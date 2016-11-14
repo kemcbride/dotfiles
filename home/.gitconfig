@@ -1,0 +1,11 @@
+[user]
+	email = kemcbride28@gmail.com
+	name = Kelly McBride
+[push]
+	default = matching
+[credential]
+	helper = cache --timeout=3600
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
