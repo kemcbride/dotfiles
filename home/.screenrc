@@ -1,0 +1,19 @@
+# My wonderful screenrc
+
+# This is for when doing things like vim and putting them to sleep.
+# Makes it cleaner in the terminal.
+altscreen on
+
+# More color
+term screen-256color
+
+# These are settings a lot of people have, so we'll see.
+startup_message off
+vbell off
+
+# Use utf8
+defutf8 on
+
+defscrollback 5000 # at least 5000
+
+# Still on the fence about statusline
