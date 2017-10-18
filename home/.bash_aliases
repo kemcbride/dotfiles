@@ -6,9 +6,6 @@ alias l='ls -CF'
 
 alias ren='/home/kelly/github/ren/ren'
 
-# use 256 color mode all the time
-alias tmux='tmux -2'
-
 alias cp='rsync -ah --progress'
 alias open='gnome-open'
 
@@ -17,18 +14,18 @@ alias bi='bundle install'
 alias beg='bundle exec guard --no-notify'
 # i just dont like being told every time it updates. i believe you, guard.
 
+# for in a python virtualenv
 alias vtree="tree -I 'bin*|local*|lib*|include*'"
-alias cslogin="ssh ke2mcbri@linux.student.cs.uwaterloo.ca"
+
 alias uw-vpn="sudo openconnect cn-vpn.uwaterloo.ca" # - NOTE requires manual username/password
 
-alias s3cp="s3cmd -c ~/.s3cfg-copath"
 alias shaws="aws --endpoint-url http://localhost:9000"
 
 # Reset xkbmap so you can re-jiggle your keyboard+esc/caps
 alias uncap="setxkbmap -option "
 
 # a cute lil guy
-function hgrep {
+hgrep() {
   history | grep $1 | cut -d \  -f3-
   history -s "hgrep $@"
 }
@@ -52,3 +49,15 @@ fasd_cd() {
 alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'
 
+fasd_ls() {
+  if [ $# -le 1 ]; then
+    fasd "$@"
+  else
+    local _fasd_ret="$(fasd -e 'printf %s' "$@")"
+    echo $_fasd_ret
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && ls "$_fasd_ret" || printf %s\n "$_fasd_ret"
+  fi
+}
+
+alias fl='fasd_ls -d '

@@ -103,6 +103,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_arduino ]; then
+    . ~/.bash_arduino
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,6 +120,7 @@ fi
 
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+stty ixany
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/include/" # For compiling songhaus, mostly.
 
@@ -164,3 +169,5 @@ _fasd_bash_hook_cmd_complete() {
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 homeshick --quiet refresh
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+
+export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"

@@ -39,14 +39,26 @@ urxvt*cursorBlink: true
 ! urxvt*transparent: true
 
 ! Extensions
+! Specifically for links:...
+urxvt*perl-ext-common: default,matcher
+urxvt*perl-common: default,matcher
 urxvt*urlLauncher: /usr/bin/chromium-browser
+urxvt*url-launcher: /usr/bin/chromium-browser
 ! Left mouse
 urxvt*matcher.button: 1 
 
 ! Appearance
-urxvt*font: xft:Noto Mono for Powerline:Regular:size=8
-urxvt*boldFont: xft:Noto Mono for Powerline:Regular:size=8
-urxvt*letterSpace: -1
+urxvt*font: xft:Noto Mono for Powerline:Regular:size=9, \
+            xft:Noto Emoji:Regular:size=9, \
+            xft:Twitter Color Emoji:Regular:size=9, \
+            xft:Symbola:Regular:size=9
+urxvt*boldFont: xft:Noto Mono for Powerline:Regular:size=9, \
+                xft:Noto Emoji:Regular:size=9, \
+                xft:Twitter Color Emoji:Regular:size=9, \
+                xft:Symbola:Regular:size=9
+! urxvt*font: xft:Noto Emoji:Regular:size=10,xft:Noto Mono for Powerline:Regular:size=10
+! urxvt*boldFont: xft:Noto Emoji:Regular:size=10,xft:Noto Mono for Powerline:Regular:size=10
+urxvt*letterSpace: 0
 ! Dracula Xresources palette (theme)
 urxvt*cursorColor: #50FA7B
 urxvt*foreground: #F8F8F2

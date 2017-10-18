@@ -3,6 +3,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-obsession'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
@@ -13,6 +14,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'rking/ag.vim' | Plug 'Chun-Yang/vim-action-ag' " :Ag command | gag action
 Plug 'flxf/uCpp.vim'
+Plug 'sudar/vim-arduino-syntax'
 " To learn:
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
@@ -45,7 +47,6 @@ if has("multi_byte")
 endif
 
 set t_Co=256
-set smartindent
 
 " for dracula theme coloring...
 highlight CursorLine term=underline cterm=underline
@@ -57,6 +58,7 @@ set cursorline
 set splitright
 set splitbelow
 set scrolloff=5
+set clipboard=unnamedplus " uses system clipboard - so cool & good <3
 
 " settings for vim-LaTeX
 set grepprg=grep\ -nH\ $*
@@ -89,11 +91,13 @@ map <Leader>o :bn<CR>
 map <Leader>p :bp<CR>
 map <Leader>a :edit 
 map <Leader>d :bd<CR>
+map <Leader>c :close<CR>
 map <Leader>m :make 
+" Add quickfix shortcuts???
+
 " DYK??? :x means :wq which means "Exit"
 map <Leader>x :x<CR>
 map <Leader>w :w<CR>
-map <Leader>c :close<CR>
 
 map <Leader>s :split 
 map <Leader>v :vsplit 
@@ -108,6 +112,7 @@ map :bD :close
 
 "syntastic settings:
 let g:syntastic_c_checkers = ['splint']
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 "signify settings - default to 'off'
 let g:signify_disable_by_default = 1
