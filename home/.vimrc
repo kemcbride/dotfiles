@@ -154,5 +154,4 @@ set noshowmode
 set nowrap
 
 syntax on
-color dracula
 filetype indent plugin on
