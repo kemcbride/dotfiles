@@ -31,6 +31,7 @@ Plug 'tpope/vim-speeddating'
 
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
+Plug 'dracula/vim', {'as': 'dracula'}
 " Need to copy the sokoban levels to ~/.vim/plugin/level{x}.sok
 Plug 'vim-scripts/sokoban.vim', {'do': 'echo dog'}
 call plug#end()
@@ -48,6 +49,7 @@ endif
 
 set t_Co=256
 
+color dracula
 " for dracula theme coloring...
 highlight CursorLine term=underline cterm=underline
 highlight Visual guibg=#6272a4
@@ -74,7 +76,7 @@ au BufNewFile,BufRead *.template set filetype=json
 " add r to the commenting/format options
 au FileType javascript setl sw=4 ts=4 sts=4 expandtab
 au FileType css setl sw=4 ts=4 sts=4 expandtab
-au FileType latex setl sw=2 ts=2 sts=2 expandtab
+au FileType latex setl sw=2 ts=2 sts=2 expandtab fo=tcroq
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
