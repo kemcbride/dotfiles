@@ -4,8 +4,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mtth/scratch.vim'
@@ -36,6 +37,8 @@ Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'vim-scripts/sokoban.vim', {'do': 'echo dog'}
 call plug#end()
 
+" i believe this is saving me wrt. work + syntastic + flake8
+let $TMPDIR = $HOME."/tmp"
 " copypasta utf-8 support ???
 if has("multi_byte")
   if &termencoding == ""
@@ -114,10 +117,14 @@ map :bD :close
 
 "syntastic settings:
 let g:syntastic_c_checkers = ['splint']
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 "signify settings - default to 'off'
-let g:signify_disable_by_default = 1
+" let g:signify_disable_by_default = 1
 
 " sokoban settings - point to where the levels are.
 let g:SokobanLevelDirectory = '/home/kelly/.vim/plugged/sokoban.vim/'

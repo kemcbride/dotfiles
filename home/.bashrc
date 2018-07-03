@@ -3,6 +3,7 @@
 # for examples
 
 export EDITOR='vim'
+export VISUAL='vim'
 set -o vi
 
 # If not running interactively, don't do anything
@@ -97,7 +98,7 @@ fi
 
 if [ -f /usr/share/scm/scm-prompt.sh ]; then
     source /usr/share/scm/scm-prompt.sh
-    export PS1="$PS1\[\033[1;33m\]$(_scm_prompt [%s])\[\033[0m\]$ "
+    export PS1="$PS1\[\033[1;33m\]\$(_dotfiles_scm_info)\[\033[0m\]$ "
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
