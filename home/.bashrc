@@ -12,6 +12,16 @@ case $- in
       *) return;;
 esac
 
+# User specific aliases and functions
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+# Source Facebook definitions
+if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
+        . /mnt/vol/engshare/admin/scripts/master.bashrc
+fi
+
 # Set CAPS LOCK to Escape/Ctrl (on linuxy hosts)
 command -v setxkbmap && setxkbmap -option 'caps:ctrl_modifier'
 command -v xcape && xcape -e 'Caps_Lock=Escape'

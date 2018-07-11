@@ -37,6 +37,9 @@ Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'vim-scripts/sokoban.vim', {'do': 'echo dog'}
 call plug#end()
 
+" work stuff:
+source $LOCAL_ADMIN_SCRIPTS/master.vimrc
+
 " i believe this is saving me wrt. work + syntastic + flake8
 let $TMPDIR = $HOME."/tmp"
 " copypasta utf-8 support ???
