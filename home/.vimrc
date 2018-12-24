@@ -4,8 +4,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mtth/scratch.vim'
@@ -31,10 +32,16 @@ Plug 'tpope/vim-speeddating'
 
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
+Plug 'dracula/vim', {'as': 'dracula'}
 " Need to copy the sokoban levels to ~/.vim/plugin/level{x}.sok
 Plug 'vim-scripts/sokoban.vim', {'do': 'echo dog'}
 call plug#end()
 
+" work stuff:
+source $LOCAL_ADMIN_SCRIPTS/master.vimrc
+
+" i believe this is saving me wrt. work + syntastic + flake8
+let $TMPDIR = $HOME."/tmp"
 " copypasta utf-8 support ???
 if has("multi_byte")
   if &termencoding == ""
@@ -48,6 +55,7 @@ endif
 
 set t_Co=256
 
+color dracula
 " for dracula theme coloring...
 highlight CursorLine term=underline cterm=underline
 highlight Visual guibg=#6272a4
@@ -74,7 +82,7 @@ au BufNewFile,BufRead *.template set filetype=json
 " add r to the commenting/format options
 au FileType javascript setl sw=4 ts=4 sts=4 expandtab
 au FileType css setl sw=4 ts=4 sts=4 expandtab
-au FileType latex setl sw=2 ts=2 sts=2 expandtab
+au FileType latex setl sw=2 ts=2 sts=2 expandtab fo=tcroq
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
@@ -112,10 +120,14 @@ map :bD :close
 
 "syntastic settings:
 let g:syntastic_c_checkers = ['splint']
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 "signify settings - default to 'off'
-let g:signify_disable_by_default = 1
+" let g:signify_disable_by_default = 1
 
 " sokoban settings - point to where the levels are.
 let g:SokobanLevelDirectory = '/home/kelly/.vim/plugged/sokoban.vim/'

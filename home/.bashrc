@@ -3,6 +3,8 @@
 # for examples
 
 export EDITOR='vim'
+export VISUAL='vim'
+set -o vi
 
 # If not running interactively, don't do anything
 case $- in
@@ -10,19 +12,33 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# User specific aliases and functions
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+# Source Facebook definitions
+if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
+        . /mnt/vol/engshare/admin/scripts/master.bashrc
+fi
 
-# Set CAPS LOCK to Escape/Ctrl
-setxkbmap -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
+# Set CAPS LOCK to Escape/Ctrl (on linuxy hosts)
+command -v setxkbmap && setxkbmap -option 'caps:ctrl_modifier'
+command -v xcape && xcape -e 'Caps_Lock=Escape'
 
 # append to the history file, don't overwrite it
 shopt -s histappend 
+# get history to sync up across terminals (tmux, screen)
+export PROMPT_COMMAND="history -a; history -n"
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=130000
+HISTFILESIZE=-1
+# don't put duplicate lines or lines starting with space in the history.
+# also, ignore my "talking to myself" bash comments...
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+HISTIGNORE="# *"
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -62,10 +78,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 fi
 unset color_prompt force_color_prompt
 
@@ -88,6 +104,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+fi
+
+if [ -f /usr/share/scm/scm-prompt.sh ]; then
+    source /usr/share/scm/scm-prompt.sh
+    export PS1="$PS1\[\033[1;33m\]\$(_dotfiles_scm_info)\[\033[0m\]$ "
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -121,10 +142,12 @@ fi
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 stty ixany
+stty stop undef
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/include/" # For compiling songhaus, mostly.
 
 export PATH="$PATH:/usr/local/lib/node_modules/jshint/bin/jshint" # add jshint to path for syntastic-vim
+export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"
 export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-linux" # the "vanilla texlive install" site says so
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/cool-stuff/libsodium/lib/" # Add libsodium path for zeromq
@@ -165,10 +188,9 @@ _fasd_bash_hook_cmd_complete() {
   done
 }
 
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-homeshick --quiet refresh
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-
-export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"
+if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
+  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  homeshick --quiet refresh
+  source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+fi
 export GOPATH="/home/kelly/go"
