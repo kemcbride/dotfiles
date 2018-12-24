@@ -151,6 +151,8 @@ endfunction
 
 set laststatus=2
 set noshowmode
+set modeline
+set modelines=5 " i guess i can allow  up to 5 lines of modeline lol
 set nowrap
 
 syntax on

@@ -171,3 +171,4 @@ homeshick --quiet refresh
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"
+export GOPATH="/home/kelly/go"
