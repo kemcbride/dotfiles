@@ -4,6 +4,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias vim='nvim'
 alias ren='/home/kelly/github/ren/ren'
 
 alias cp='rsync -ah --progress'

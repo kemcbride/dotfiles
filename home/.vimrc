@@ -2,34 +2,15 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-obsession'
-" Plug 'tpope/vim-dispatch'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-speeddating'
+Plug 'dense-analysis/ale'
+Plug 'maximbaz/lightline-ale' 
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
-Plug 'mtth/scratch.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'rking/ag.vim' | Plug 'Chun-Yang/vim-action-ag' " :Ag command | gag action
 Plug 'flxf/uCpp.vim'
-Plug 'sudar/vim-arduino-syntax'
-" To learn:
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/vim-easy-align'
-" Plug 'tpope/vim-eunuch'
-" Plug 'tpope/vim-abolish'
-" Plug 'tpope/vim-flagship'
-
-" To use eventually some day:
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-journal'
-Plug 'tpope/vim-speeddating'
-" Plug 'tpope/vim-projectionist' " Requires configuration, cool for 'projects'
-
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
 Plug 'dracula/vim', {'as': 'dracula'}
@@ -121,11 +102,12 @@ map :Bd :close
 map :bD :close
 
 "syntastic settings:
-let g:syntastic_c_checkers = ['splint']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" let g:syntastic_c_checkers = ['splint']
+" let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" let g:syntastic_cpp_compiler_options = ' -std=c++17'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "signify settings - default to 'off'
@@ -139,29 +121,24 @@ let g:SokobanLevelDirectory = '/home/kelly/.vim/plugged/sokoban.vim/'
 let g:lightline = {
 	\ 'colorscheme': 'wombat',
 	\ 'active' : {
-	\	'right': [ [ 'syntastic', 'lineinfo' ] ],
+	\	'right': [ [ 'lineinfo' ] ],
 	\ },
 	\ 'component': {
 	\	 'readonly': '%{&readonly?"'.emoji#for('lock').'":""}',
-	\ },
-	\ 'component_expand': {
-	\   'syntastic': 'SyntasticStatuslineFlag',
-	\ },
-	\ 'component_type': {
-	\   'syntastic': 'error',
 	\ },
 	\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 	\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
 	\ }
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup filetype_cpp
+	autocmd FileType cpp set ts=2 sts=2 sw=2 expandtab ai
+	autocmd FileType cpp let g:ale_completion_enabled = 0
+	let g:ale_linters = {'cpp': ['clang']}
+	let g:ale_cpp_clang_executable = 'clang++'
+	let g:ale_cpp_clang_options = '-std=c++17 -Wall'
+	let g:ale_cpp_clangcheck_executable = 'clang-check'
+	let g:ale_fix_on_save = 1
 augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
 
 set laststatus=2
 set noshowmode
