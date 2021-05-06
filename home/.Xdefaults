@@ -42,10 +42,10 @@ urxvt*cursorBlink: true
 ! Specifically for links:...
 urxvt*perl-ext-common: default,matcher
 urxvt*perl-common: default,matcher
-urxvt*urlLauncher: /usr/bin/chromium-browser
-urxvt*url-launcher: /usr/bin/chromium-browser
-! Left mouse
-urxvt*matcher.button: 1 
+urxvt*urlLauncher: /usr/bin/firefox --new-tab 
+urxvt*url-launcher: /usr/bin/firefox --new-tab
+! Right mouse - the default (unspecified) is 2, or middle button
+urxvt*matcher.button: 3
 
 ! Appearance
 urxvt*font: xft:Noto Mono for Powerline:Regular:size=9, \

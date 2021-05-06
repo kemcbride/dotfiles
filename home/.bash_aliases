@@ -4,6 +4,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias vim='nvim'
 alias ren='/home/kelly/github/ren/ren'
 alias vim='nvim'
 
@@ -24,8 +25,3 @@ alias shaws="aws --endpoint-url http://localhost:9000"
 
 # Reset xkbmap so you can re-jiggle your keyboard+esc/caps
 alias uncap="setxkbmap -option "
-
-qawk () {
-  local cmd="{print \$$1}"
-  awk "$cmd"
-}
