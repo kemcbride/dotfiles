@@ -199,3 +199,7 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   homeshick --quiet refresh
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
