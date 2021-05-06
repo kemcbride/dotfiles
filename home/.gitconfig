@@ -34,3 +34,10 @@
 
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
+
+[http]
+  proxy = https://fwdproxy:8082
+  proxySSLCert=/var/facebook/credentials/kemcbride/x509/kemcbride.pem
+  proxySSLKey=/var/facebook/credentials/kemcbride/x509/kemcbride.pem
+[url "https://github.com/"]
+	insteadOf = git://github.com

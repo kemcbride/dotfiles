@@ -17,9 +17,18 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+source /usr/local/share/fb_tools/fb.shell
 # Source engshare definitions
 if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
         . /mnt/vol/engshare/admin/scripts/master.bashrc
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
 fi
 
 # User specific aliases and functions
@@ -199,3 +208,7 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   homeshick --quiet refresh
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
+export GOPATH="/data/users/kemcbride/gopaths/gobuck:/data/users/kemcbride/gopaths/godeps:/data/users/kemcbride/gopaths/gofbcode"
+export GOROOT="/data/users/kemcbride/gopaths/goroot"
+export PATH="/data/users/kemcbride/gopaths/go-tools/bin:$PATH"
+export PATH="/data/users/kemcbride/gopaths/goroot/bin:$PATH"

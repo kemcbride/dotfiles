@@ -5,28 +5,20 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 " Plug 'tpope/vim-dispatch'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
-Plug 'mtth/scratch.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'rking/ag.vim' | Plug 'Chun-Yang/vim-action-ag' " :Ag command | gag action
-Plug 'flxf/uCpp.vim'
-Plug 'sudar/vim-arduino-syntax'
+Plug 'dense-analysis/ale'
 " To learn:
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
+Plug 'Blackrush/vim-gocode'
 " Plug 'tpope/vim-eunuch'
 " Plug 'tpope/vim-abolish'
 " Plug 'tpope/vim-flagship'
 
 " To use eventually some day:
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-journal'
 Plug 'tpope/vim-speeddating'
 " Plug 'tpope/vim-projectionist' " Requires configuration, cool for 'projects'
 
@@ -130,9 +122,15 @@ set statusline+=%*
 
 "signify settings - default to 'off'
 " let g:signify_disable_by_default = 1
-
-" sokoban settings - point to where the levels are.
-let g:SokobanLevelDirectory = '/home/kelly/.vim/plugged/sokoban.vim/'
+"
+let g:ale_linters = {
+  \ 'python': ['flake8'],
+  \ }
+let g:ale_fixers = {
+  \ 'python': ['pyls'],
+  \ }
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 "lightline settings - lots & lots...
 " Notably: colorscheme seems to have no effect...
@@ -162,6 +160,12 @@ function! s:syntastic()
   SyntasticCheck
   call lightline#update()
 endfunction
+
+augroup au_go_group
+  autocmd!
+  autocmd FileType go set noexpandtab
+  autocmd FileType go set tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
 
 set laststatus=2
 set noshowmode
