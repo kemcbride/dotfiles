@@ -104,7 +104,7 @@ let g:ale_linters = {
   \ 'python': ['flake8'],
   \ }
 let g:ale_fixers = {
-  \ 'python': ['pyls'],
+  \ 'python': ['black'],
   \ }
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
