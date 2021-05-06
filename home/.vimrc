@@ -2,6 +2,8 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-markdown'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-speeddating'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale' 
@@ -9,18 +11,19 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'rking/ag.vim' | Plug 'Chun-Yang/vim-action-ag' " :Ag command | gag action
-Plug 'flxf/uCpp.vim'
+Plug 'sudar/vim-arduino-syntax'
+" To learn:
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-speeddating'
+
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
 Plug 'dracula/vim', {'as': 'dracula'}
-" Need to copy the sokoban levels to ~/.vim/plugin/level{x}.sok
-Plug 'vim-scripts/sokoban.vim', {'do': 'echo dog'}
 call plug#end()
 
 " work stuff:
 if filereadable("$LOCAL_ADMIN_SCRIPTS/master.vimrc")
-    source $LOCAL_ADMIN_SCRIPTS/master.vimrc
+    source "$LOCAL_ADMIN_SCRIPTS/master.vimrc"
 endif
 
 " i believe this is saving me wrt. work + syntastic + flake8
@@ -39,7 +42,6 @@ endif
 set t_Co=256
 
 color dracula
-" for dracula theme coloring...
 highlight CursorLine term=underline cterm=underline
 highlight Visual guibg=#6272a4
 
@@ -51,12 +53,7 @@ set splitbelow
 set scrolloff=5
 set clipboard=unnamedplus " uses system clipboard - so cool & good <3
 
-" settings for vim-LaTeX
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex' " apparently the default tex is plain tex, this is latex
-
-" get rid of delay??? comment timeoutlen? only need ttimeout?
-set ttimeoutlen=100 " timeoutlen=100
+set ttimeoutlen=100
 " some file types
 au BufNewFile,BufRead *.sls set filetype=yaml
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -86,7 +83,6 @@ map <Leader>c :close<CR>
 map <Leader>m :make 
 " Add quickfix shortcuts???
 
-" DYK??? :x means :wq which means "Exit"
 map <Leader>x :x<CR>
 map <Leader>w :w<CR>
 
@@ -101,20 +97,8 @@ map :wQ :wq
 map :Bd :close
 map :bD :close
 
-"syntastic settings:
-" let g:syntastic_c_checkers = ['splint']
-" let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_cpp_compiler_options = ' -std=c++11'
-" let g:syntastic_cpp_compiler_options = ' -std=c++17'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 "signify settings - default to 'off'
 " let g:signify_disable_by_default = 1
-
-" sokoban settings - point to where the levels are.
-let g:SokobanLevelDirectory = '/home/kelly/.vim/plugged/sokoban.vim/'
 
 "lightline settings - lots & lots...
 " Notably: colorscheme seems to have no effect...
@@ -142,6 +126,8 @@ augroup END
 
 set laststatus=2
 set noshowmode
+set modeline
+set modelines=5 " i guess i can allow  up to 5 lines of modeline lol
 set nowrap
 
 syntax on

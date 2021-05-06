@@ -2,6 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export PATH=/usr/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH="$PATH:/usr/local/lib/node_modules/jshint/bin/jshint" # add jshint to path for syntastic-vim
+export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"
+export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-linux" # the "vanilla texlive install" site says so
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/cool-stuff/libsodium/lib/" # Add libsodium path for zeromq
+
 export EDITOR='vim'
 export VISUAL='vim'
 set -o vi
@@ -157,11 +165,6 @@ stty stop undef
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/include/" # For compiling songhaus, mostly.
 
-export PATH="$PATH:/usr/local/lib/node_modules/jshint/bin/jshint" # add jshint to path for syntastic-vim
-export PATH="$PATH:/home/kelly/android/platform-tools:/home/kelly/npm/bin"
-export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-linux" # the "vanilla texlive install" site says so
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/cool-stuff/libsodium/lib/" # Add libsodium path for zeromq
 
 if [ -x "$(command -v fasd)" ]; then 
 	_fasd_prompt_func() {
@@ -202,6 +205,10 @@ if [ -x "$(command -v fasd)" ]; then
 	}
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GOPATH="/home/kelly/go"
 
 if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
