@@ -22,6 +22,15 @@ if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
         . /mnt/vol/engshare/admin/scripts/master.bashrc
 fi
 
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
+fi
+
 # User specific aliases and functions
 
 # Set CAPS LOCK to Escape/Ctrl (on linuxy hosts)
