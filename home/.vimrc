@@ -13,6 +13,8 @@ Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sudar/vim-arduino-syntax'
 " To learn:
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-speeddating'
 
