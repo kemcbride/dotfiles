@@ -23,11 +23,6 @@ Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
 Plug 'dracula/vim', {'as': 'dracula'}
 call plug#end()
 
-" work stuff:
-if filereadable("$LOCAL_ADMIN_SCRIPTS/master.vimrc")
-    source "$LOCAL_ADMIN_SCRIPTS/master.vimrc"
-endif
-
 " i believe this is saving me wrt. work + syntastic + flake8
 let $TMPDIR = $HOME."/tmp"
 " copypasta utf-8 support ???
