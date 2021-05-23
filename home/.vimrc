@@ -16,7 +16,7 @@ Plug 'sudar/vim-arduino-syntax'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/vim-gist'
 Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-speeddating'
+Plug 'Blackrush/vim-gocode'
 
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
@@ -101,6 +101,15 @@ map :bD :close
 
 "signify settings - default to 'off'
 " let g:signify_disable_by_default = 1
+"
+let g:ale_linters = {
+  \ 'python': ['flake8'],
+  \ }
+let g:ale_fixers = {
+  \ 'python': ['black'],
+  \ }
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 "lightline settings - lots & lots...
 " Notably: colorscheme seems to have no effect...
@@ -124,6 +133,12 @@ augroup filetype_cpp
 	let g:ale_cpp_clang_options = '-std=c++17 -Wall'
 	let g:ale_cpp_clangcheck_executable = 'clang-check'
 	let g:ale_fix_on_save = 1
+augroup END
+
+augroup au_go_group
+  autocmd!
+  autocmd FileType go set noexpandtab
+  autocmd FileType go set tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 set laststatus=2

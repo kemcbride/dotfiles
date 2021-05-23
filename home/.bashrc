@@ -25,9 +25,27 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+source /usr/local/share/fb_tools/fb.shell
 # Source engshare definitions
 if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
         . /mnt/vol/engshare/admin/scripts/master.bashrc
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
+fi
+
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
+fi
+# source bash my fb lol
+if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
+        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
 fi
 
 # User specific aliases and functions
@@ -196,9 +214,17 @@ if [ -x "$(command -v fasd)" ]; then
 	}
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GOPATH="/home/kelly/go"
+
 if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   homeshick --quiet refresh
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
-export GOPATH="/home/kelly/go"
+export GOPATH="/data/users/kemcbride/gopaths/gobuck:/data/users/kemcbride/gopaths/godeps:/data/users/kemcbride/gopaths/gofbcode"
+export GOROOT="/data/users/kemcbride/gopaths/goroot"
+export PATH="/data/users/kemcbride/gopaths/go-tools/bin:$PATH"
+export PATH="/data/users/kemcbride/gopaths/goroot/bin:$PATH"
