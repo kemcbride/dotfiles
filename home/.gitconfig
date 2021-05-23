@@ -11,6 +11,13 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 
+[http]
+  proxy = https://fwdproxy:8082
+  proxySSLCert=/var/facebook/credentials/kemcbride/x509/kemcbride.pem
+  proxySSLKey=/var/facebook/credentials/kemcbride/x509/kemcbride.pem
+[url "https://github.com/"]
+	insteadOf = git://github.com
+
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
