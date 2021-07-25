@@ -20,36 +20,6 @@ case $- in
       *) return;;
 esac
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
-
-source /usr/local/share/fb_tools/fb.shell
-# Source engshare definitions
-if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
-        . /mnt/vol/engshare/admin/scripts/master.bashrc
-fi
-# source bash my fb lol
-if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
-        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
-fi
-# source bash my fb lol
-if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
-        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
-fi
-
-# source bash my fb lol
-if [ -f /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh ]; then
-        . /home/kemcbride/fbcode/experimental/kemcbride/bash_my_fb.sh
-fi
-# source bash my fb lol
-if [ -f /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh ]; then
-        . /home/kemcbride/fbcode/scripts/kemcbride/bash_my_fb.sh
-fi
-
-# User specific aliases and functions
-
 # Set CAPS LOCK to Escape/Ctrl (on linuxy hosts)
 command -v setxkbmap && setxkbmap -option 'caps:ctrl_modifier'
 command -v xcape && xcape -e 'Caps_Lock=Escape'
@@ -174,46 +144,6 @@ stty stop undef
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/include/" # For compiling songhaus, mostly.
 
-
-if [ -x "$(command -v fasd)" ]; then 
-	_fasd_prompt_func() {
-	  eval "fasd --proc $(fasd --sanitize $(history 1 | \
-	    sed "s/^[ ]*[0-9]*[ ]*//"))" >> "/dev/null" 2>&1
-	}
-
-	# add bash hook
-	case $PROMPT_COMMAND in
-	  *_fasd_prompt_func*) ;;
-	  *) PROMPT_COMMAND="_fasd_prompt_func;$PROMPT_COMMAND";;
-	esac
-
-	# bash command mode completion
-	_fasd_bash_cmd_complete() {
-	  # complete command after "-e"
-	  local cur=${COMP_WORDS[COMP_CWORD]}
-	  [[ ${COMP_WORDS[COMP_CWORD-1]} == -*e ]] && \
-	    COMPREPLY=( $(compgen -A command $cur) ) && return
-	  # complete using default readline complete after "-A" or "-D"
-	  case ${COMP_WORDS[COMP_CWORD-1]} in
-	    -A|-D) COMPREPLY=( $(compgen -o default $cur) ) && return;;
-	  esac
-	  # get completion results using expanded aliases
-	  local RESULT=$( fasd --complete "$(alias -p $COMP_WORDS \
-	    2>> "/dev/null" | sed -n "\$s/^.*'\\(.*\\)'/\\1/p")
-	    ${COMP_LINE#* }" | while read -r line; do
-	      quote_readline "$line" 2>/dev/null || \
-		printf %q "$line" 2>/dev/null  && \
-		printf \\n
-	    done)
-	  local IFS=$'\n'; COMPREPLY=( $RESULT )
-	}
-	_fasd_bash_hook_cmd_complete() {
-	  for cmd in $*; do
-	    complete -F _fasd_bash_cmd_complete $cmd
-	  done
-	}
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -224,7 +154,3 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   homeshick --quiet refresh
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
-export GOPATH="/data/users/kemcbride/gopaths/gobuck:/data/users/kemcbride/gopaths/godeps:/data/users/kemcbride/gopaths/gofbcode"
-export GOROOT="/data/users/kemcbride/gopaths/goroot"
-export PATH="/data/users/kemcbride/gopaths/go-tools/bin:$PATH"
-export PATH="/data/users/kemcbride/gopaths/goroot/bin:$PATH"
