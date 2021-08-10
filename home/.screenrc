@@ -14,6 +14,6 @@ vbell off
 # Use utf8
 defutf8 on
 
-defscrollback 5000 # at least 5000
+defscrollback 10000 # at least 5000
 
 # Still on the fence about statusline

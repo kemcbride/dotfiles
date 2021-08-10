@@ -6,7 +6,6 @@ alias l='ls -CF'
 
 alias vim='nvim'
 alias ren='/home/kelly/github/ren/ren'
-alias vim='nvim'
 
 alias cp='rsync -ah --progress'
 alias open='gnome-open'
