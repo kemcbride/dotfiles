@@ -10,6 +10,12 @@ export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-linux" # the "vanilla texl
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/cool-stuff/libsodium/lib/" # Add libsodium path for zeromq
 
+# Include this path on windows-WSL environment, for arduino-cli
+UNAME_R=$(uname -r)
+if [[ $UNAME_R =~ "Microsoft" ]]; then
+	export PATH="$PATH:/mnt/c/Users/Kelly/bin"
+fi
+
 export EDITOR='vim'
 export VISUAL='vim'
 set -o vi
