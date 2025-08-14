@@ -11,12 +11,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'sudar/vim-arduino-syntax'
 " To learn:
-Plug 'mattn/webapi-vim'
-Plug 'mattn/vim-gist'
 Plug 'junegunn/vim-easy-align'
-Plug 'Blackrush/vim-gocode'
 
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
@@ -122,10 +118,10 @@ let g:lightline = {
 
 augroup filetype_cpp
 	autocmd FileType cpp set ts=2 sts=2 sw=2 expandtab ai
-	autocmd FileType cpp let g:ale_completion_enabled = 0
+	autocmd FileType cpp let g:ale_completion_enabled = 1
 	let g:ale_linters = {'cpp': ['clang']}
 	let g:ale_cpp_clang_executable = 'clang++'
-	let g:ale_cpp_clang_options = '-std=c++17 -Wall'
+	let g:ale_cpp_clang_options = '-std=c++20 -Wall'
 	let g:ale_cpp_clangcheck_executable = 'clang-check'
 	let g:ale_fix_on_save = 1
 augroup END
