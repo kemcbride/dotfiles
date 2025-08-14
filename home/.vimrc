@@ -116,13 +116,19 @@ let g:lightline = {
 	\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
 	\ }
 
+" Lint .h files as C++, not C
+let g:ale_pattern_options_enabled = 1
+let g:ale_pattern_options = { '\.h$': { 'ale_linters': { 'cpp' : ['clang'] } } }
+
+let g:ale_linters['cpp'] = ['clang']
+let g:ale_cpp_cc_executable = 'clang'
+let g:ale_cpp_cc_options = '-std=c++20 -Wall'
+let g:ale_cpp_clang_executable = 'clang'
+let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+
 augroup filetype_cpp
 	autocmd FileType cpp set ts=2 sts=2 sw=2 expandtab ai
 	autocmd FileType cpp let g:ale_completion_enabled = 1
-	let g:ale_linters = {'cpp': ['clang']}
-	let g:ale_cpp_clang_executable = 'clang++'
-	let g:ale_cpp_clang_options = '-std=c++20 -Wall'
-	let g:ale_cpp_clangcheck_executable = 'clang-check'
 	let g:ale_fix_on_save = 1
 augroup END
 
