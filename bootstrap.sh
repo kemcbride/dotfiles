@@ -58,7 +58,7 @@ function osx_setup() {
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Use brew bundle install (uses Brewfile)
-brew bundle 
+brew bundle install --verbose
 }
 
 # Homeshick!
