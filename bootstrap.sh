@@ -6,7 +6,7 @@
 GH_KEY_TYPE="ed25519"
 GH_KEY_SUFFIX="_gh"
 
-set -euxo pipefail
+set -euo pipefail
 
 # https://github.com/pqrs-org/Karabiner-Elements/issues/1225#issuecomment-460170227
 # If this isn't working as expected...
@@ -82,9 +82,5 @@ case "$OS_NAME" in
         ;;
 esac
 
-# Ideas of things to add:
-# - ligature/terminal font setup/download + installation
-# - terminal colors setup/download - Dracula is what I use
-# - neovim installation + PlugInstall calls
-# - https://github.com/ibraheemdev/modern-unix - various tools installation?
-# - chsh -s /bin/bash ?? (i mean who knows how long i'll be on bash...)
+
+echo 'Done'
