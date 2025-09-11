@@ -60,6 +60,12 @@ function osx_setup() {
 brew bundle 
 }
 
+# Homeshick!
+# Now this is kind of weird, because this means you'll have 2 copies of this repo. Oh well.
+git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+$HOME/.homesick/repos/homeshick/bin/homeshick clone kemcbride/dotfiles
+
+# OS-specific stuff:
 OS_NAME=$(uname -s)
 case "$OS_NAME" in
     "Darwin")
