@@ -47,11 +47,11 @@ EOF
 eval "$(ssh-agent -s)"
 ssh-add -K "${GH_KEY_PATH}"
 
-echo "SSH Key for Github added to ssh, printing public key to terminal & using pbcopy to insert it into copy-paste buffer and add it to github (or wherever)"
+echo 'SSH Key for Github added to ssh, printing public key to terminal & using pbcopy to insert it into copy-paste buffer'
 cat ${GH_KEY_PATH}.pub
 pbcopy < ${GH_KEY_PATH}.pub
 
-read -p "Press enter once you've added the new key to your hosted git ssh key setup thingy: " dummyvar
+read -p 'Press enter once you add the new key to your hosted git: ' dummyvar
 
 function osx_setup() {
 # Install homebrew
