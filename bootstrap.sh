@@ -75,7 +75,7 @@ case "$OS_NAME" in
         ;;
     "Linux")
         echo "This is a Linux system."
-        echo "TODO - I haven't set up package setup/installation for linux
+        echo "TODO - I haven't set up package setup/installation for linux"
         ;;
     *)
         echo "This is an unknown operating system: $OS_NAME"
