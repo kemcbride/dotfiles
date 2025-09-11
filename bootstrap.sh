@@ -32,12 +32,12 @@ echo "Read username: ${gh_username} - email: ${email}"
 sleep 2
 echo "Generating ssh key for github access..."
 
-GH_KEY_PATH="~/.ssh/id_${GH_KEY_TYPE}_${GH_KEY_SUFFIX}"
+GH_KEY_PATH="$HOME/.ssh/id_${GH_KEY_TYPE}_${GH_KEY_SUFFIX}"
 
 ssh-keygen -t "${GH_KEY_TYPE}" -C "${email}" -f "${GH_KEY_PATH}"
 
 # Add github ssh config to ~/.ssh/config
-cat << EOF >> ~/.ssh/config
+cat << EOF >> "$HOME/.ssh/config"
 Host ${gh_username}.github.com
   Hostname github.com
   PreferredAuth publickey
