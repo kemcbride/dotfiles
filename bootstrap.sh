@@ -4,7 +4,7 @@
 # Of course there's a lot that's not in here yet.
 
 GH_KEY_TYPE="ed25519"
-GH_KEY_SUFFIX="_gh"
+GH_KEY_SUFFIX="gh"
 
 set -euo pipefail
 
