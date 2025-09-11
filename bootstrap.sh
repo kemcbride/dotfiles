@@ -71,7 +71,7 @@ OS_NAME=$(uname -s)
 case "$OS_NAME" in
     "Darwin")
         echo "This is a macOS system."
-        osx_setup()
+        osx_setup
         ;;
     "Linux")
         echo "This is a Linux system."
