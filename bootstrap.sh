@@ -34,7 +34,7 @@ echo "Generating ssh key for github access..."
 
 GH_KEY_PATH="~/.ssh/id_${GH_KEY_TYPE}_${GH_KEY_SUFFIX}"
 
-ssh-keygen -t "${GH_KEY_TYPE}" -C "${email}" -f "${GH_KEY_PATH}
+ssh-keygen -t "${GH_KEY_TYPE}" -C "${email}" -f "${GH_KEY_PATH}"
 
 # Add github ssh config to ~/.ssh/config
 cat << EOF >> ~/.ssh/config
@@ -44,6 +44,7 @@ Host ${gh_username}.github.com
   IdentityFile ${GH_KEY_PATH}
 
 EOF
+
 eval "$(ssh-agent -s)"
 ssh-add -K "${GH_KEY_PATH}"
 
@@ -81,6 +82,5 @@ case "$OS_NAME" in
         echo "TODO... slash maybe NEVERDO - I have no idea how to even prep that."
         ;;
 esac
-
 
 echo 'Done'
