@@ -10,7 +10,7 @@ set -euxo pipefail
 
 # https://github.com/pqrs-org/Karabiner-Elements/issues/1225#issuecomment-460170227
 # If this isn't working as expected...
-cp -r $(pwd)/home/complex_modifications ~/.config/karabiner/assets/
+# cp -r $(pwd)/home/complex_modifications ~/.config/karabiner/assets/
 
 
 case "$SHELL" in
