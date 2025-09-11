@@ -16,6 +16,7 @@ brew "docker"
 brew "colima"
 
 cask "iterm2"
+cask "karabiner-elements"
 
 brew "go"
 
