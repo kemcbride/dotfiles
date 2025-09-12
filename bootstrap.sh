@@ -83,4 +83,7 @@ case "$OS_NAME" in
         ;;
 esac
 
+echo "Running neovim and attempting to set up Plug packages..."
+nvim --headless +PlugInstall +qa
+
 echo 'Done'
