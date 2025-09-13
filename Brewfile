@@ -9,6 +9,7 @@ brew 'rsync'
 brew 'bash-completion'
 brew 'tree'
 brew 'zoxide'
+brew 'devcontainer'
 
 brew "neovim"
 
