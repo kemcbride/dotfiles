@@ -39,7 +39,7 @@ ssh-keygen -t "${GH_KEY_TYPE}" -C "${email}" -f "${GH_KEY_PATH}"
 cat << EOF >> "$HOME/.ssh/config"
 Host ${gh_username}.github.com
   Hostname github.com
-  PreferredAuth publickey
+  PreferredAuthentications publickey
   IdentityFile ${GH_KEY_PATH}
 
 EOF
@@ -52,6 +52,7 @@ cat ${GH_KEY_PATH}.pub
 pbcopy < ${GH_KEY_PATH}.pub
 
 read -p 'Press enter once you add the new key to your hosted git: ' dummyvar
+echo ""
 
 function osx_setup() {
     # Install homebrew
@@ -65,15 +66,18 @@ function osx_setup() {
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
     # Dracula iterm theme
-    git clone https://github.com/dracula/iterm.git
+    git clone https://github.com/dracula/iterm.git dracula
     read -p "Please open iterm2 and set the dracula theme on your profile: "
+    echo ""
 
 
     # Tell them to open and allow karabiner to set up its folders & perms
     read -p "Please open karabiner-elements and grant it the perms it asks for - any key once that's done: "
+    echo ""
     cp -r $(pwd)/home/complex_modifications ~/.config/karabiner/assets/
 
     read -p "OK, now try to add or enable the karabiner modification for caps-lock/ctrl: "
+    echo ""
 
 }
 
