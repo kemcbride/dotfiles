@@ -1,15 +1,15 @@
 # Brewfile for kemcbride
+brew "bash-completion"
 brew "git"
 brew "jj"
 brew "jq"
 brew "make"
-brew 'tmux'
-brew 'ripgrep'
-brew 'rsync'
-brew 'bash-completion'
-brew 'tree'
-brew 'zoxide'
-brew 'devcontainer'
+brew "mosh"
+brew "ripgrep"
+brew "rsync"
+brew "tmux"
+brew "tree"
+brew "zoxide"
 
 brew "neovim"
 
@@ -21,4 +21,4 @@ cask "karabiner-elements"
 
 brew "go"
 
-cask 'font-fira-code'
+cask "font-fira-code"
