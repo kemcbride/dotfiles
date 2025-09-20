@@ -21,8 +21,4 @@ cask "karabiner-elements"
 
 brew "go"
 
-tap 'homebrew/cask-fonts'
 cask 'font-fira-code'
-
-tap "dracula/install"
-cask "dracula-foo"

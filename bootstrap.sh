@@ -6,11 +6,10 @@
 GH_KEY_TYPE="ed25519"
 GH_KEY_SUFFIX="gh"
 
-set -euo pipefail
+# set -euo pipefail
 
 # https://github.com/pqrs-org/Karabiner-Elements/issues/1225#issuecomment-460170227
 # If this isn't working as expected...
-# cp -r $(pwd)/home/complex_modifications ~/.config/karabiner/assets/
 
 
 case "$SHELL" in
@@ -55,10 +54,27 @@ pbcopy < ${GH_KEY_PATH}.pub
 read -p 'Press enter once you add the new key to your hosted git: ' dummyvar
 
 function osx_setup() {
-# Install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# Use brew bundle install (uses Brewfile)
-brew bundle install --verbose
+    # Install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Use brew bundle install (uses Brewfile)
+    brew bundle install --verbose
+
+    # Allow key repeat
+    defaults write -g ApplePressAndHoldEnabled -bool false
+    # And for vscode
+    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+    # Dracula iterm theme
+    git clone https://github.com/dracula/iterm.git
+    read -p "Please open iterm2 and set the dracula theme on your profile: "
+
+
+    # Tell them to open and allow karabiner to set up its folders & perms
+    read -p "Please open karabiner-elements and grant it the perms it asks for - any key once that's done: "
+    cp -r $(pwd)/home/complex_modifications ~/.config/karabiner/assets/
+
+    read -p "OK, now try to add or enable the karabiner modification for caps-lock/ctrl: "
+
 }
 
 # Homeshick!
