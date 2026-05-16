@@ -48,10 +48,6 @@ HISTIGNORE="# *"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -153,10 +149,11 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/include/" # For compiling songhaus
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export GOPATH="/home/kelly/go"
+export GOPATH="/$HOME/go"
 
 if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   homeshick --quiet refresh
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
+PATH=/Users/blitzle/.nvm/versions/node/v22.20.0/bin:/usr/local/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/iTerm.app/Contents/Resources/utilities:/usr/local/lib/node_modules/jshint/bin/jshint:/home/kelly/android/platform-tools:/home/kelly/npm/bin:/usr/local/texlive/2015/bin/x86_64-linux:/Users/blitzle/.rvm/bin:/Users/blitzle/cool-stuff/libsodium/lib/:/Users/blitzle/.local/bin
