@@ -17,6 +17,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'SilentGlasses/colorhighlighter'
 " To learn:
 Plug 'junegunn/vim-easy-align'
 
