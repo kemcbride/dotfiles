@@ -11,8 +11,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-speeddating'
-Plug 'dense-analysis/ale'
-Plug 'maximbaz/lightline-ale' 
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/vim-emoji'
@@ -20,6 +18,11 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'SilentGlasses/colorhighlighter'
 " To learn:
 Plug 'junegunn/vim-easy-align'
+
+" Golang stuff?
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/go.nvim'
 
 " Things that aren't even task-y:
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim'}
